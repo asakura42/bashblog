@@ -16,6 +16,7 @@ global_config=".config"
 # This function will load all the variables defined here. They might be overridden
 # by the 'global_config' file contents
 global_variables() {
+    prefixsite="\/blog\/"
     global_software_name="BashBlog"
     global_software_version="2.9"
 
@@ -926,6 +927,7 @@ make_rss() {
         echo '</channel></rss>'
     } 3>&1 >"$rssfile"
     echo ""
+    sed -i "s/$prefix_tags/$prefixsite$prefix_tags/g" "$rssfile"
 
     mv "$rssfile" "$blog_feed"
     chmod 644 "$blog_feed"

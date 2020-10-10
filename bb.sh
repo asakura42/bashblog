@@ -148,7 +148,8 @@ global_variables() {
     # Experts only. You may need to tune the locales too
     # Leave empty for no conversion, which is not recommended
     # This default filter respects backwards compatibility
-    convert_filename="iconv -f utf-8 -t ascii//translit | sed 's/^-*//' | tr [:upper:] [:lower:] | tr ' ' '-' | tr -dc '[:alnum:]-'"
+    convert_filename="sed \"y/абвгдезийклмнопрстуфхъьы/abvgdezijklmnoprstufxbby/;y/АБВГДЕЗИЙКЛМНОПРСТУФХЪЬЫ/abvgdezijklmnoprstufxbby/;s/ё/yo/g;s/Ё/yo/g;s/ж/zh/g;s/Ж/zh/g;s/ш/sh/g;s/ч/ch/g;s/щ/shh/g;s/ю/yu/g;s/я/ya/g;s/э/eh/g\" | iconv -f utf-8 -t ascii//translit | sed 's/^-*//' | tr [:upper:] [:lower:] | tr ' ' '-' | tr -dc '[:alnum:]-'"
+
 
     # URL where you can view the post while it's being edited
     # same as global_url by default

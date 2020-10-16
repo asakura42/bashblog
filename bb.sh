@@ -160,7 +160,7 @@ global_variables() {
 
     # Markdown location. Trying to autodetect by default.
     # The invocation must support the signature 'markdown_bin in.md > out.html'
-    [[ -f Markdown.pl ]] && markdown_bin=./Markdown.pl || markdown_bin=$(which Markdown.pl 2>/dev/null || which markdown 2>/dev/null)
+    [[ -f /usr/bin/md2html ]] && markdown_bin=/usr/bin/md2html || markdown_bin=$(which /usr/bin/md2html 2>/dev/null || which markdown 2>/dev/null)
 }
 
 # Check for the validity of some variables
